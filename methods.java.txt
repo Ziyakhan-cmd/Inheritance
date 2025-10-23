@@ -1,0 +1,73 @@
+import java.util.*;
+class Bank
+{
+    double balance=10000;
+    double deposit(double amount)
+    {
+        if(amount>0)
+        {
+            balance=balance+amount;
+            System.out.println("Successfully deposited amount inr : "+amount);
+        }
+        else
+        {
+            System.out.println("Invalid deposit amount ");
+        }
+        return balance;
+    }
+    double withdraw(double amount)
+    {
+        if(balance>=amount)
+        {
+            balance=balance-amount;
+            System.out.println("Withdrawl successfull amount inr : "+amount);
+        }
+        else
+        {
+            System.out.println("Insufficeint funds");
+        }
+        return balance;
+    }
+    void balanceEnquiry()
+    {
+        System.out.println("Current Balance : "+balance);
+    }
+}
+class User extends Bank
+{
+    static Scanner sc=new Scanner(System.in);
+    void transaction()
+    {
+        System.out.println("1 - Deposit\n2 - Withdraw\n3 - Check balance");
+        int n=sc.nextInt();
+        if(n==1)
+        {
+            System.out.print("Enter deposit amount : ");
+            System.out.println("Available balance : "+deposit(sc.nextDouble()));
+        }
+        else if(n==2)
+        {
+            System.out.print("Enter withdraw amount : ");
+            System.out.println("Available balance : "+withdraw(sc.nextDouble()));
+        }
+        else if(n==3)
+        {
+            balanceEnquiry();
+        }
+        else
+        {
+            System.out.print("Invalid choice ");
+        }
+        System.out.print("Press 1 to perform another transaction or any key to exit : ");
+        char ch=sc.next().charAt(0);
+        if(ch=='1')
+        {
+            transaction();
+        }
+        else
+            System.out.println("Thank you :)");
+    }
+	public static void main(String[] args) {
+		new User().transaction();
+	}
+}
