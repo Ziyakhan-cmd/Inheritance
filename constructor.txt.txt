@@ -1,0 +1,40 @@
+import java.util.*;
+class A
+{
+	static Scanner sc=new Scanner(System.in);
+	String a=sc.next();
+	A()
+	{
+		System.out.println("Default");
+		System.out.println(a);
+	}
+	A(int a)
+	{
+		
+		System.out.println(a);
+		
+	}
+	A(double a, short b)
+	{
+		
+
+		System.out.println(a);
+		System.out.println(b);
+		new A(sc.nextInt());
+		
+			}
+	A(A obj)
+	{
+		System.out.print(a);
+
+		System.out.print(obj);
+		new A(sc.nextDouble(),sc.nextShort());
+		
+			}
+
+	public static void main(String[] args)
+	{
+			
+	new A(new A());
+}
+}
